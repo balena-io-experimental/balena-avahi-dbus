@@ -1,4 +1,4 @@
-ROM resin/%%RESIN_MACHINE_NAME%%-python:3
+FROM resin/%%RESIN_MACHINE_NAME%%-python:3
 
 WORKDIR /usr/src/app/
 ENV INITSYSTEM on
