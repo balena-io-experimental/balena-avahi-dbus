@@ -19,7 +19,7 @@ def run():
                                 dbus.Int32(-1), # avahi.PROTO_UNSPEC
                                 dbus.UInt32(0), # flags
                                 "webServer", # sname
-                                "_ssh._tcp", # stype
+                                "_http._tcp", # stype
                                 "local", # sdomain
                                 "0536ffe-0536ffe.local", # shost - should fill out programmically
                                 dbus.UInt16(8080), # port

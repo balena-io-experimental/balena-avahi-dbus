@@ -1,7 +1,9 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-python:3
+FROM resin/%%RESIN_MACHINE_NAME%%-debian
 
 WORKDIR /usr/src/app/
 ENV INITSYSTEM on
+
+RUN apt-get update && apt-get install -yq python-dbus
 
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
