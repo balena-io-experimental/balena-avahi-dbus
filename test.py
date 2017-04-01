@@ -2,10 +2,10 @@ import dbus
 from time import sleep
 
 sys_bus = dbus.SystemBus()
-bus = dbus.SystemBus()
+print(sys_bus)
 
 def check():
-    bus = dbus.SystemBus()
+    sys_bus = dbus.SystemBus()
     try:
         raw_server = sys_bus.get_object('org.freedesktop.Avahi', '/')
         server = dbus.Interface(raw_server, 'org.freedesktop.Avahi.Server')
