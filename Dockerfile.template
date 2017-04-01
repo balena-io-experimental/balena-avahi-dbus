@@ -3,9 +3,12 @@ FROM resin/%%RESIN_MACHINE_NAME%%-debian:jessie
 WORKDIR /usr/src/app/
 ENV INITSYSTEM on
 
-RUN apt-get update && apt-get install -yq python-dbus
-
-RUN pip install flask
+# python-dbus for dbus communication
+# python-flash for example server
+RUN apt-get update && \
+    apt-get install -yq \
+      python-dbus \
+      python-flask
 
 COPY *.py ./
 COPY start.sh ./

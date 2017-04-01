@@ -1,4 +1,5 @@
 import dbus
+import socket
 from time import sleep
 from flask import Flask
 
@@ -32,13 +33,15 @@ def run():
 
     print(server2.GetState()) # should be 0, as not up
     print(server2.IsEmpty())
+    hostname = socket.gethostname()
+    print(hostname)
     result = server2.AddService(dbus.Int32(-1), # avahi.IF_UNSPEC
                                 dbus.Int32(-1), # avahi.PROTO_UNSPEC
                                 dbus.UInt32(0), # flags
                                 "Test Server", # sname
                                 "_http._tcp", # stype
                                 "local", # sdomain
-                                "0536ffe-0536ffe.local", # shost - should fill out programmically
+                                "{}.local".format(hostname), # shost - should fill out programmically
                                 dbus.UInt16(8000), # port
                                 dbus.Array(signature="aay")) # TXT field, this is empty
     server2.Commit()
