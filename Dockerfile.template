@@ -5,6 +5,8 @@ ENV INITSYSTEM on
 
 RUN apt-get update && apt-get install -yq python-dbus
 
+RUN pip install flask
+
 COPY *.py ./
 COPY start.sh ./
 
