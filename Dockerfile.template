@@ -1,12 +1,9 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-debian
+FROM resin/%%RESIN_MACHINE_NAME%%-debian:jessie
 
 WORKDIR /usr/src/app/
 ENV INITSYSTEM on
 
 RUN apt-get update && apt-get install -yq python-dbus
-
-COPY requirements.txt ./
-RUN pip install -r requirements.txt
 
 COPY *.py ./
 COPY start.sh ./
