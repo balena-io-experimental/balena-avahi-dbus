@@ -38,7 +38,7 @@ def run():
                                 "Test Server", # sname
                                 "_http._tcp", # stype
                                 "local", # sdomain
-                                "hydra.local", # shost - should fill out programmically
+                                "0536ffe-0536ffe.local", # shost - should fill out programmically
                                 dbus.UInt16(8000), # port
                                 dbus.Array(signature="aay")) # TXT field, this is empty
     server2.Commit()
