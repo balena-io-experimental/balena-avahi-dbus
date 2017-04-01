@@ -41,9 +41,9 @@ def run():
                                 "Test Server", # sname
                                 "_http._tcp", # stype
                                 "local", # sdomain
-                                "{}.local".format(hostname), # shost - should fill out programmically
+                                "{}.local".format(hostname), # shost
                                 dbus.UInt16(8000), # port
-                                dbus.Array(signature="aay")) # TXT field, this is empty
+                                dbus.Array(signature="aay")) # TXT field, this is empty at the moment
     server2.Commit()
     print(server2.GetState()) # should be 1, as now up
 
