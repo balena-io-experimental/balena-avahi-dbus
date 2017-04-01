@@ -4,6 +4,16 @@ from time import sleep
 sys_bus = dbus.SystemBus()
 bus = dbus.SystemBus()
 
+def check():
+    bus = dbus.SystemBus()
+    try:
+        raw_server = sys_bus.get_object('org.freedesktop.Avahi', '/')
+        server = dbus.Interface(raw_server, 'org.freedesktop.Avahi.Server')
+        print(server.GetVersionString())
+    except dbus.DBusException:
+        return False
+    return False
+
 def run():
     raw_server = sys_bus.get_object('org.freedesktop.Avahi', '/')
     server = dbus.Interface(raw_server, 'org.freedesktop.Avahi.Server')
@@ -28,6 +38,7 @@ def run():
     print(server2.GetState()) # should be 1, as now up
 
 if __name__ == "__main__":
+    check()
     run()
     while True:
         print("Running Server")
