@@ -33,7 +33,7 @@ def run():
                                 "local", # sdomain
                                 "0536ffe-0536ffe.local", # shost - should fill out programmically
                                 dbus.UInt16(8080), # port
-                                "")
+                                [""])
     server2.Commit()
     print(server2.GetState()) # should be 1, as now up
 
