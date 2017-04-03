@@ -1,5 +1,4 @@
 import dbus
-import socket
 import os
 from time import sleep
 from flask import Flask
@@ -34,7 +33,7 @@ def run():
 
     print(server2.GetState()) # should be 0, as not up
     print(server2.IsEmpty())
-    hostname = socket.gethostname()
+    hostname = os.getenv("HOSTNAME")
     print(hostname)
     service_name = os.getenv("SERVICE_NAME", "resin.io service")
     result = server2.AddService(dbus.Int32(-1), # avahi.IF_UNSPEC
