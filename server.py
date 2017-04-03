@@ -1,5 +1,6 @@
 import dbus
 import socket
+import os
 from time import sleep
 from flask import Flask
 
@@ -35,10 +36,11 @@ def run():
     print(server2.IsEmpty())
     hostname = socket.gethostname()
     print(hostname)
+    service_name = os.getenv("SERVICE_NAME", "resin.io service")
     result = server2.AddService(dbus.Int32(-1), # avahi.IF_UNSPEC
                                 dbus.Int32(-1), # avahi.PROTO_UNSPEC
                                 dbus.UInt32(0), # flags
-                                "Test Server", # sname
+                                server_name, # sname
                                 "_http._tcp", # stype
                                 "local", # sdomain
                                 "{}.local".format(hostname), # shost
