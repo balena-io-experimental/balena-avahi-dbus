@@ -49,7 +49,8 @@ def run():
                                 "local", # sdomain
                                 "{}.local".format(hostname), # shost
                                 dbus.UInt16(8000), # port
-                                dbus.Array(["hello=there"], signature="aay")) # TXT field, this is empty at the moment
+                                dbus.Array(["hello=there", "why=not"])) # TXT field, this is empty at the moment
+                                # dbus.Array(["hello=there"], signature="aay")) # TXT field, this is empty at the moment
     server2.Commit()
     print(server2.GetState()) # should be 1, as now up
 
