@@ -1,5 +1,6 @@
 import dbus
 import os
+# import socket
 from time import sleep
 from flask import Flask
 
@@ -33,8 +34,11 @@ def run():
 
     print(server2.GetState()) # should be 0, as not up
     print(server2.IsEmpty())
-    hostname = os.getenv("HOSTNAME")
-    print(hostname)
+    ### This is how hostname should be gotten, but currently it gets the wrong value
+    # hostname = socket.gethostname()
+    ### Workaround
+    hostname = os.getenv("RESIN_DEVICE_UUID")[:7]
+    print("shost: {}.local".format(hostname))
     service_name = os.getenv("SERVICE_NAME", "resin.io service")
     result = server2.AddService(dbus.Int32(-1), # avahi.IF_UNSPEC
                                 dbus.Int32(-1), # avahi.PROTO_UNSPEC
