@@ -29,7 +29,7 @@ class AvahiService:
                                domainname, # sdomain
                                "{}.{}".format(hostname, domainname), # shost
                                dbus.UInt16(port), # port
-                               dbus.Array(txt)) # TXT field, this is empty at the moment
+                               dbus.Array(txt, signature='aay')) # TXT field, this is empty at the moment
         self.server.Commit()
 
 #
