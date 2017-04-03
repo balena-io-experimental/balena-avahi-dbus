@@ -40,7 +40,7 @@ def run():
     result = server2.AddService(dbus.Int32(-1), # avahi.IF_UNSPEC
                                 dbus.Int32(-1), # avahi.PROTO_UNSPEC
                                 dbus.UInt32(0), # flags
-                                server_name, # sname
+                                service_name, # sname
                                 "_http._tcp", # stype
                                 "local", # sdomain
                                 "{}.local".format(hostname), # shost
