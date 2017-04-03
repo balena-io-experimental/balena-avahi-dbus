@@ -11,6 +11,7 @@ RUN apt-get update && \
       python-flask
 
 COPY *.py ./
+COPY avahi avahi
 COPY start.sh ./
 
 CMD ["bash", "start.sh"]
