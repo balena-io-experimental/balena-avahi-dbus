@@ -33,11 +33,12 @@ def run():
     server2 = dbus.Interface(raw_server2, 'org.freedesktop.Avahi.EntryGroup')
 
     print(server2.GetState()) # should be 0, as not up
+    hostname = server2.GetHostName()
     print(server2.IsEmpty())
     ### This is how hostname should be gotten, but currently it gets the wrong value
     # hostname = socket.gethostname()
     ### Workaround
-    hostname = os.getenv("RESIN_DEVICE_UUID")[:7]
+    # hostname = os.getenv("RESIN_DEVICE_UUID")[:7]
     print("shost: {}.local".format(hostname))
     service_name = os.getenv("SERVICE_NAME", "resin.io service")
     result = server2.AddService(dbus.Int32(-1), # avahi.IF_UNSPEC
