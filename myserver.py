@@ -11,5 +11,5 @@ def hello_world():
     return 'Hello World in collaboration with Avahi and DBUS!'
 
 if __name__ == "__main__":
-    avahiservice = AvahiService("resin webserver", "_http._tcp", 8000)
-    app.run(host='0.0.0.0', port=8000)
+    avahiservice = AvahiService("resin webserver", "_http._tcp", 80)
+    app.run(host='0.0.0.0', port=80)
