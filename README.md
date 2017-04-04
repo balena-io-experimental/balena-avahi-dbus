@@ -1,7 +1,5 @@
 # resin-avahi-dbus
 
-**Work in progress**
-
 Example project to announce mDNS/Avahi services over dbus on resin.io / resinOS 2.0
 devices.
 
