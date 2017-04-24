@@ -34,6 +34,9 @@ or in many cases you can instead set it as an environment variable in the `Docke
 ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 ```
 
+For more details on this please check the [Dbus communication with hostOS](https://docs.resin.io/runtime/runtime/#dbus-communication-with-hostos)
+section of the documentation.
+
 ## License
 
 Copyright 2017 Resinio Ltd
