@@ -23,6 +23,17 @@ from avahi.service import AvahiService
 avahiservice = AvahiService("resin webserver", "_http._tcp", 80)
 ```
 
+Note that it's important to also set the correct `DBUS_SYSTEM_BUS_ADDRESS` value
+to talk to the system dbus, as shown in the `start.sh` start script:
+
+```
+export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+```
+or in many cases you can instead set it as an environment variable in the `Dockerfile` with
+```
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+```
+
 ## License
 
 Copyright 2017 Resinio Ltd
