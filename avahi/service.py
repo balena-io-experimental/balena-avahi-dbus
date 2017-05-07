@@ -2,7 +2,7 @@ import dbus
 import os
 from time import sleep
 
-from server import AvahiServer
+from .server import AvahiServer
 
 class AvahiService:
 
